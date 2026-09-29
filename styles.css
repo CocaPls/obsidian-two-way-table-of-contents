@@ -1,0 +1,42 @@
+/* Scoped to generated elements. No heading, theme, or source-file overrides. */
+/* A flex formatting context avoids neighbouring floats without absolute positioning.
+   Empty flex spacers divide only the space left after the auto-sized TOC. */
+.tw-toc-host { display: flex; align-items: flex-start; clear: none; }
+.tw-toc-host::before, .tw-toc-host::after { content: ""; min-width: 0; flex-basis: 0; }
+.tw-toc-host::before { flex-grow: var(--tw-toc-position, 0); }
+.tw-toc-host::after { flex-grow: calc(100 - var(--tw-toc-position, 0)); }
+.tw-toc-box { flex: 0 1 auto; display: flow-root; width: fit-content; min-width: min(12em, 100%); max-width: 100%; box-sizing: border-box; padding: .9em 1.1em; margin: .6em 0 1em; color: var(--text-normal); font-size: calc(var(--font-text-size) * var(--tw-toc-scale, 1)); }
+.tw-toc-box.tw-toc-border { border: 1px solid var(--background-modifier-border); }
+.tw-toc-bar { display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; }
+.tw-toc-title { font-size: 1.2em; font-weight: 600; overflow-wrap:anywhere; }
+.tw-toc-box .tw-toc-toggle { background: transparent; border: 0; box-shadow: none; padding: .2em .45em; color: var(--text-muted); font-size:1.2em; height:auto; }
+.tw-toc-box ul.tw-toc-list { list-style: none; margin: .6em 0 0; padding: 0; }
+.tw-toc-list[hidden] { display:none !important; }
+.tw-toc-box li.tw-toc-item { list-style: none; margin:.15em 0; line-height:1.6; overflow-wrap:anywhere; }
+.tw-toc-marker { margin-inline-end:.25em; }
+.tw-toc-box a, a.tw-heading-number { color:var(--link-color); cursor:pointer; text-decoration:none; }
+.tw-toc-box a:hover, a.tw-heading-number:hover { color:var(--link-color-hover); text-decoration:underline; }
+.tw-heading-number { font:inherit; }
+.tw-toc-highlight { background:var(--text-highlight-bg); }
+.tw-toc-error { color:var(--text-error); font-size:.85em; margin-top:.5em; overflow-wrap:anywhere; }
+.tw-toc-empty { color:var(--text-muted); }
+.tw-toc-box a:focus-visible, .tw-heading-number:focus-visible, .tw-toc-toggle:focus-visible { outline:2px solid var(--interactive-accent); outline-offset:2px; }
+
+/* Hierarchy is semantic; collapse hides only descendants, never changes numbering. */
+.tw-toc-box ul.tw-toc-children { list-style:none; margin:0; padding:0 0 0 1.2em; }
+.tw-toc-item[hidden], .tw-toc-children[hidden] { display:none !important; }
+.tw-toc-row { display:flex; align-items:baseline; }
+.tw-toc-label { min-width:0; }
+.tw-toc-box .tw-toc-marker { flex:none; min-height:24px; box-sizing:border-box; padding:.12em max(.18em,3px); margin-inline-end:.1em; }
+.tw-toc-box .tw-toc-branch, .tw-toc-branch-spacer { flex:0 0 max(1.5em,24px); width:max(1.5em,24px); }
+.tw-toc-box .tw-toc-branch { min-height:24px; padding:.1em; height:auto; font:inherit; line-height:inherit; background:transparent; border:0; box-shadow:none; color:var(--text-muted); cursor:pointer; }
+.tw-toc-branch > span { display:inline-block; }
+.tw-toc-branch[aria-expanded="true"] > span { transform:rotate(90deg); }
+.tw-toc-branch:focus-visible { outline:2px solid var(--interactive-accent); outline-offset:1px; }
+.tw-toc-settings-error { color:var(--text-error); font-size:var(--font-ui-small); }
+.tw-toc-range { display:flex; align-items:center; gap:.5em; }
+.tw-toc-range input { width:4em; }
+
+.tw-toc-box .tw-toc-toggle { min-width:24px; min-height:24px; cursor:pointer; }
+.tw-toc-guides ul.tw-toc-children { border-inline-start:1px solid var(--background-modifier-border); margin-inline-start:.7em; padding-inline-start:.5em; }
+.tw-toc-label mark { background:var(--text-highlight-bg); color:inherit; }

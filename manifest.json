@@ -1,0 +1,9 @@
+{
+  "id": "two-way-table-of-contents",
+  "name": "Two-Way Table of Contents",
+  "version": "0.1.0",
+  "minAppVersion": "1.13.7",
+  "description": "Navigate between a table of contents and numbered headings without changing heading text.",
+  "author": "colar_bear",
+  "isDesktopOnly": true
+}

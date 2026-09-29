@@ -1,0 +1,33 @@
+{
+  "name": "two-way-table-of-contents",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "node build.mjs",
+    "check": "tsc --noEmit",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "package": "npm run lint && npm run check && npm test && npm run build && node package.mjs",
+    "lint": "eslint src package.json --max-warnings 0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "@eslint/json": "^0.14.0",
+    "@types/node": "^22.0.0",
+    "esbuild": "^0.25.0",
+    "eslint": "^9.39.5",
+    "eslint-plugin-obsidianmd": "^0.4.2",
+    "obsidian": "^1.13.1",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0",
+    "typescript-eslint": "^8.71.0"
+  },
+  "dependencies": {
+    "markdown-it": "^15.0.1"
+  },
+  "license": "MIT",
+  "overrides": {
+    "eslint-plugin-obsidianmd": {
+      "obsidian": "$obsidian"
+    }
+  }
+}
