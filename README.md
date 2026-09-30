@@ -2,11 +2,23 @@
 
 Navigate from a table of contents to headings and back, without changing your Markdown headings or existing links.
 
+Requires desktop Obsidian **1.13.7 or newer**. Live navigation and folding use **Reading view**; Live Preview and mobile are outside the supported scope.
+
 [한국어 사용법](README.ko.md)
 
 ![Expand, fold, navigate, and return in Obsidian](docs/demo.gif)
 
 Four steps captured in Obsidian: expanded outline → folded branches → body heading → return with the matching entry highlighted. [Video](docs/demo.mp4) · [Example note](docs/demo.md)
+
+## Install and update
+
+If the plugin appears in Obsidian's Community plugins browser, install and enable it there. For manual installation:
+
+1. Open the [GitHub releases](https://github.com/CocaPls/obsidian-two-way-table-of-contents/releases/latest) and download **`main.js`, `manifest.json`, and `styles.css`** from the same release's **Assets**. The source-code ZIP/TAR archives are not the installable plugin.
+2. Create `<vault>/<config-folder>/plugins/two-way-table-of-contents/` and place the three files directly inside it. The default config folder is `.obsidian`.
+3. Restart Obsidian, then enable **Two-Way Table of Contents** in **Settings → Community plugins**, allowing community plugins if prompted.
+
+To update manually, disable the plugin, replace those three files with the new release's files, and enable it again. Keep the existing `data.json`; it stores your settings. No separate plugin dependency is required.
 
 ## Use
 
@@ -94,11 +106,9 @@ Global settings can be found by name in Obsidian's settings search. Navigation c
 
 The interface follows Obsidian's language: Korean for Korean, English otherwise. Saved titles are preserved.
 
-## Manual installation
-
-Build locally, or use a release's `main.js`, `manifest.json`, and `styles.css`. Copy those three files to `<vault>/<config-folder>/plugins/two-way-table-of-contents/` (`.obsidian` is the default config folder), then enable the plugin in Community plugins. Do not copy `node_modules` or development sources.
-
 ## Development
+
+Use Node.js 22.13 or newer and npm.
 
 ```sh
 npm ci --ignore-scripts
@@ -111,6 +121,10 @@ npm run build
 `src/model.ts` validates options and calculates numbers. `src/folding.ts` manages the visible hierarchy; `src/main.ts` integrates rendering and navigation; `src/settings.ts` and `src/insert-modal.ts` provide UI. `src/preview.ts` isolates renderer internals. Tests exercise production methods with isolated app adapters; actual app checks remain necessary for layout, keyboard access, and scrolling.
 
 See [release preparation](RELEASING.md) for packaging and manual checks.
+
+## Help and issue reports
+
+Use [GitHub Issues](https://github.com/CocaPls/obsidian-two-way-table-of-contents/issues) for bugs and feature requests. For a bug, include the plugin version, Obsidian version, operating system, theme, editing/reading mode, steps to reproduce, and a small example of the headings and `tw-toc` block involved. A screenshot helps with layout problems.
 
 ## Privacy and license
 

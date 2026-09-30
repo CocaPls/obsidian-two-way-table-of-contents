@@ -4,6 +4,22 @@
 
 Obsidian 읽기 화면에 자동 목차와 선택적인 본문 번호를 표시한다. 목차 항목은 본문으로, 본문 번호는 문서의 첫 목차로 이동한다. 제목 원문과 저장된 제목 링크는 고치지 않는다.
 
+데스크톱 Obsidian **1.13.7 이상**이 필요하다. 목차 이동과 접기는 **읽기 화면**에서 사용하며, 실시간 미리보기·모바일은 지원 범위에 포함하지 않는다.
+
+![펼침·접기·본문 이동·목차 복귀](docs/demo.gif)
+
+실제 Obsidian 화면 캡처 네 장으로 구성한 소개 자료다. [동영상](docs/demo.mp4)과 [예시 원문](docs/demo.md)을 함께 제공한다.
+
+## 설치·업데이트
+
+Obsidian의 커뮤니티 플러그인 검색에 표시되면 그곳에서 설치하고 활성화한다. 직접 설치할 때는 다음 순서를 따른다.
+
+1. [GitHub 릴리스](https://github.com/CocaPls/obsidian-two-way-table-of-contents/releases/latest)의 **Assets**에서 같은 버전의 **`main.js`, `manifest.json`, `styles.css`**를 내려받는다. 소스 코드 ZIP·TAR 압축파일은 설치용 플러그인이 아니다.
+2. `<볼트>/<설정 폴더>/plugins/two-way-table-of-contents/`를 만들고 세 파일을 바로 안에 넣는다. 기본 설정 폴더는 `.obsidian`이다.
+3. Obsidian을 다시 시작하고 **설정 → 커뮤니티 플러그인**에서 **Two-Way Table of Contents**를 켠다. 커뮤니티 플러그인 허용 안내가 나오면 허용한다.
+
+직접 업데이트할 때는 플러그인을 끄고 새 버전의 세 파일을 교체한 뒤 다시 켠다. 기존 설정을 보존하려면 `data.json`을 유지한다. 별도로 설치해야 하는 의존 플러그인은 없다.
+
 ## 사용
 
 편집 화면에서 **Two-Way Table of Contents: 목차 삽입** 명령을 실행하면 삽입 창이 열린다. 전역 설정을 따르려면 바로 **삽입**, 해당 목차만 다르게 꾸미려면 **추가 설정**을 펼쳐 값을 지정한다. 취소하면 원문을 바꾸지 않는다. 다음 블록을 직접 입력할 수도 있다.
@@ -94,10 +110,11 @@ title: 목차
 
 ## 개발
 
-Node.js와 npm으로 설치·검사·빌드한다.
+Node.js 22.13 이상과 npm으로 설치·검사·빌드한다.
 
 ```sh
 npm ci --ignore-scripts
+npm run lint
 npm run check
 npm test
 npm run build
@@ -118,12 +135,6 @@ npm run build
 ## 언어와 배포
 
 Obsidian 언어가 한국어이면 한국어 UI, 그 외에는 영어 UI를 사용한다. 사용자가 저장한 목차 제목은 번역하지 않는다. 제품 소스는 MIT 라이선스이며 번들 의존성 고지는 THIRD_PARTY_NOTICES.md에 있다. 릴리스 준비는 [배포 절차](RELEASING.md)를 따른다.
-
-## 동작 소개와 검증
-
-![펼침·접기·본문 이동·목차 복귀](docs/demo.gif)
-
-실제 Obsidian 화면 캡처 네 장으로 구성한 소개 자료다. [동영상](docs/demo.mp4)과 [예시 원문](docs/demo.md)을 함께 제공한다.
 
 ## 편집·검색·복사 명령
 
@@ -147,3 +158,7 @@ Obsidian 언어가 한국어이면 한국어 UI, 그 외에는 영어 UI를 사�
 Obsidian 설정 검색에서 ‘처음 펼쳐둘 제목 단계’ 등 전역 설정 이름으로 찾을 수 있습니다. 이동 중 해당 창이 숨겨지면 이동을 취소합니다. 창으로 돌아온 뒤 숫자를 다시 누르세요.
 
 개발할 때 `npm run lint`로 공식 Obsidian 권장 코드 검사를 실행합니다. 배포 파일 준비와 수동 검수 항목은 [배포 절차](RELEASING.md)에 있습니다.
+
+## 도움과 문제 신고
+
+오류나 기능 제안은 [GitHub Issues](https://github.com/CocaPls/obsidian-two-way-table-of-contents/issues)에 남긴다. 오류를 신고할 때는 플러그인·Obsidian 버전, 운영체제, 테마, 편집/읽기 화면 여부, 재현 순서와 짧은 제목·`tw-toc` 블록 예시를 함께 적는다. 배치 문제에는 화면 캡처가 도움이 된다.
