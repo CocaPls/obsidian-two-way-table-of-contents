@@ -114,6 +114,6 @@ See [release preparation](RELEASING.md) for packaging and manual checks.
 
 ## Privacy and license
 
-No network requests or telemetry. File writes are limited to confirmed table-of-contents insertion/editing and plugin settings. CLI commands only read notes or return generated text. Arbitrary HTML, scripts, and embedded content in heading labels are not executed.
+No network requests or telemetry. Copy commands write only the requested table of contents, heading link, or section content to the system clipboard when you explicitly run them. The plugin never reads existing clipboard contents. File writes are limited to confirmed table-of-contents insertion/editing and plugin settings. CLI commands only read notes or return generated text. Arbitrary HTML, scripts, and embedded content in heading labels are not executed.
 
 [MIT](LICENSE). Bundled library licenses are included in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and in the JavaScript bundle.
